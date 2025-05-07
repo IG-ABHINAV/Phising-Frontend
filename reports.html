@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8" /><title>Reports - PhishShield</title><link rel="stylesheet" href="style.css" /></head>
+<body>
+<header class="navbar"><h1>Reports</h1><nav><a href="index.html">Home</a></nav></header>
+<main class="main-content">
+  <h2>Scan History</h2>
+  <ul id="reportList"></ul>
+</main>
+<footer>&copy; 2025 PhishShield</footer>
+<script>
+  const logs = JSON.parse(localStorage.getItem("phishLogs") || "[]");
+  const list = document.getElementById("reportList");
+  logs.forEach(log => {
+    const li = document.createElement("li");
+    li.textContent = log.time + " - " + log.url;
+    list.appendChild(li);
+  });
+</script>
+</body>
+</html>
